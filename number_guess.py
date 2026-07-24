@@ -3,9 +3,6 @@ import random
 def get_valid_guess():
     """Ask the user for a guess, keep asking until it's a valid integer."""
     while True:
-        # TODO: try to convert input() to an int
-        # TODO: if it fails, print an error and loop again
-        # TODO: if it works, return the int
         try:
             user_guess = int(input("What's your guess? "))
             return user_guess
@@ -21,11 +18,6 @@ def play_round(lower, upper):
         guess = get_valid_guess()
         guesses += 1
 
-        # TODO: compare guess to secret_number
-        # TODO: if too low, print "Too low!"
-        # TODO: if too high, print "Too high!"
-        # TODO: if correct, print how many guesses it took, then return/break
-
         if guess > secret_number:
             print("Nope, too high!")
         elif guess < secret_number:
@@ -36,8 +28,6 @@ def play_round(lower, upper):
 
 def choose_difficulty():
     """Let the player pick a difficulty, which changes the number range."""
-    # TODO: print options like "1. Easy (1-50)  2. Medium (1-100)  3. Hard (1-500)"
-    # TODO: return a (lower, upper) tuple based on their choice
     difficulty_setting = 0
     while True:
         try:
@@ -63,7 +53,6 @@ def main():
 
     play_round(lower, upper)
 
-    # TODO: ask if they want to play again, loop if yes
     while True:
         play_again = input("Would you like to play again? yes/no ").strip().lower()
         if play_again not in ['yes', 'no']:

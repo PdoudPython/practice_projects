@@ -2,8 +2,8 @@
 # player input -> next room name
 rooms = {
     "start": {
-        "description": "You wake up in a dark forest. Paths lead north and east.",
-        "choices": {"north": "cave", "east": "river"}
+        "description": "You wake up in a dark forest. Paths lead north west and east, but you can also search south.",
+        "choices": {"north": "cave", "east": "river", "south": "waterfall", "west": "mountain"}
     },
     "cave": {
         "description": "A damp cave. You hear dripping water. There's a path south.",
@@ -11,9 +11,18 @@ rooms = {
         # TODO: add more choices/rooms, maybe one with an item or ending
     },
     "river": {
-        "description": "A wide river blocks your path. You could go west or swim across.",
-        "choices": {"west": "start", "swim": "ending_good"}
+        "description": "A wide river blocks your path. You could go west or search the shore.",
+        "choices": {"west": "start", "river_search": "find_rope"}
     },
+    "waterfall": {
+        "description": "A rushing waterfall is all you see. You could go north or climb down.",
+        "choices": {"north": "start", "climb": "find_flashlight"}
+    },
+    "mountain": {
+        "description": "A towering mountain stands before you. You could try to climb it for a better view, or take the cave.",
+        "choices": {"climb": "mountain_choice", "north": "cave"}
+    },
+    
     "ending_good": {
         "description": "You made it across and found a village! You win!",
         "choices": {}  # empty choices = game over
